@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import connect from "@vkontakte/vk-bridge";
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import "@vkontakte/vkui/dist/vkui.css";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Init VK  Mini App
+connect.send("VKWebAppInit");
+const schemeAttribute = document.createAttribute("scheme");
+schemeAttribute.value = "space_gray";
+schemeAttribute.value = "bright_light";
+document.body.attributes.setNamedItem(schemeAttribute);
+
+/*
+connect.subscribe(({ detail: { type, data }}) => {
+	if (type === "VKWebAppUpdateConfig") {
+		const schemeAttribute = document.createAttribute("scheme");
+		schemeAttribute.value = data.scheme ? data.scheme : "bright_light";
+		document.body.attributes.setNamedItem(schemeAttribute);
+	}
+});
+*/
+ReactDOM.render(<App />, document.getElementById('root'));
+

@@ -1,20 +1,36 @@
 {
   "name": "myapp",
   "version": "0.1.0",
+  "description": "",
+  "homepage": "./",
   "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env PORT=10888 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "keywords": [],
+  "author": "KIM",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^5.2.1",
+    "react-hot-loader": "^4.9.0",
+    "react-scripts": "^3.0.1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@vkontakte/icons": "^1.29.0",
+    "@vkontakte/vk-bridge": "^2.2.4",
+    "@vkontakte/vkui": "^3.12.0",
+    "gh-pages": "^3.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "react-dom": "^16.13.1"
   },
   "eslintConfig": {
     "extends": "react-app"
